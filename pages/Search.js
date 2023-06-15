@@ -70,7 +70,7 @@ const Search = () => {
     }
 
     return (
-        <div className=" ">
+        <div >
             <section className="text-white text-xl bg-gradient-to-r from-blue-950 to-blue-600 ">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                     <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -82,12 +82,16 @@ const Search = () => {
                                 <input
                                     type="text"
                                     id="hero-field"
-                                    className="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-red-200 focus:bg-transparent focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    className="w-full bg-white rounded border bg-opacity-50 border-white focus:ring-2 focus:ring-red-200 focus:bg-white focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     value={query}
                                     onChange={handleSearch}
                                 />
                             </div>
-                            <button className="inline-flex text-white border-2 border-red-500 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg font-semibold">
+                            <button
+                                className="inline-flex 
+                            text-white border-2 
+                            border-red-500 py-2 px-6 focus:outline-none 
+                            hover:bg-red-600 rounded text-lg font-semibold">
                                 Search
                             </button>
                         </div>
@@ -97,20 +101,40 @@ const Search = () => {
                 </div>
             </section>
 
-            <div>
+            {/**dropdown menu */}
+            <div className="border-2 border-blue-500 mt-2 ">
+
+                <div>
+                    <select className="m-2 py-4 px-4 outline-none font-serif text-lg font-semibold"
+                        name="Category" id="crypto">
+                        <option className="outline-none">Market Cap</option>
+                        <option>Name</option>
+                        <option>hjhjh</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div className="mt-2">
                 {/**Coin Display */}
                 {paginatedCoinlist.map((coin) => (
                     <div key={coin.id}>
-                        <h1 className="shadow-md">{coin.name}</h1>
+                        <div className="ml-3 border-l-2 mt-3 border-t-2 border-b-2
+                         border-l-blue-500 py-3 px-2 ">
+                            <h1>Symbol: {coin.symbol}</h1>
+                            <h1 className="text-blue-500">Name: {coin.name}</h1>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <div className="pagination">
-                <button onClick={previousPage} disabled={page === 1}>
-                    previous
+            <div className="pagination flex justify-around mt-4">
+                <button className="border-1 border-red-500 rounded-md px-2 py-2 bg-blue-500"
+                    onClick={previousPage} disabled={page === 1}>
+                    Previous
                 </button>
-                <button onClick={nextPage}>Next</button>
+                <button className="border-1 border-red-500 rounded-md px-5 py-2 bg-blue-500"
+                    onClick={nextPage}>Next</button>
             </div>
         </div>
     );
