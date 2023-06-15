@@ -25,7 +25,8 @@ const Search = () => {
                 const options = {
                     method: "GET",
                     headers: {
-                        "X-RapidAPI-Key": process.env.X_RapidAPI_Key,
+                        "X-RapidAPI-Key": '14e2617be1msh3c78f8e9c1f46e1p152996jsn972a5e39f901'
+                        ,
                         "X-RapidAPI-Host": "coingecko.p.rapidapi.com",
                     },
                 };
@@ -65,9 +66,7 @@ const Search = () => {
     const paginatedCoinlist = coinlist.slice(startIndex, endIndex);
 
     // Check if data returned is an array
-    if (!Array.isArray(paginatedCoinlist)) {
-        return <div> Loading ..</div>; // Or show a loading state or an error message
-    }
+
 
     return (
         <div >
@@ -109,7 +108,6 @@ const Search = () => {
                         name="Category" id="crypto">
                         <option className="outline-none">Market Cap</option>
                         <option>Name</option>
-                        <option>hjhjh</option>
                     </select>
                 </div>
             </div>
@@ -117,7 +115,7 @@ const Search = () => {
 
             <div className="mt-2">
                 {/**Coin Display */}
-                {paginatedCoinlist.map((coin) => (
+                { paginatedCoinlist.map((coin) => (
                     <div key={coin.id}>
                         <div className="ml-3 border-l-2 mt-3 border-t-2 border-b-2
                          border-l-blue-500 py-3 px-2 ">
