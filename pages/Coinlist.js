@@ -1,111 +1,68 @@
-import { useEffect, useState } from "react";
-
-const CACHE_KEY = "coinlist";
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // Cache expiration time (24 hours in milliseconds)
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const Coinlist = () => {
-    const [coinlist, setCoinlist] = useState([]);
-    const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(20);
+    const [coinlist, setCoinlist] = useState([])
+
+
+
+    const Fetchcoins = async () => {
+        const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h&locale=en`
+
+        try {
+            const data = await fetch(url)
+            let coins = await data.json()
+            console.log(coins)
+            setCoinlist(coins)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            return <div>Loading ..</div>
+        }
+    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            // Check if data exists in local storage/cache
-            const cachedData = localStorage.getItem("coinlist");
-            const cachedTimestamp = localStorage.getItem(`${CACHE_KEY}_timestamp`);
-            const currentTime = new Date().getTime();
+        Fetchcoins()
 
-            if (cachedData && cachedTimestamp) {
-                if (currentTime - cachedTimestamp <= CACHE_EXPIRATION) {
-                    setCoinlist(JSON.parse(cachedData));
-                }
-            } else {
-                const url = `https://coingecko.p.rapidapi.com/coins/list?include_platform=false&per_page=250`;
-                const options = {
-                    method: "GET",
-                    headers: {
-                        "X-RapidAPI-Key": '14e2617be1msh3c78f8e9c1f46e1p152996jsn972a5e39f901'
-                        ,
-                        "X-RapidAPI-Host": "coingecko.p.rapidapi.com",
-                    },
-                };
-                try {
-                    let res = await fetch(url, options);
-                    const data = await res.json();
-
-                    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-                    localStorage.setItem(`${CACHE_KEY}_timestamp`, currentTime.toString());
-                    console.log(data)
-                    setCoinlist(data);
-                } catch (err) {
-                    console.log(err);
-                }
-            }
-        };
-        fetchData();
-    }, []);
-
-    const nextPage = () => {
-        setPage((prevPage) => prevPage + 1);
-    };
-
-    const previousPage = () => {
-        if (page > 1) {
-            setPage((prevPage) => prevPage - 1);
-        }
-    };
-
-
-
-    // Calculate the start and end indices for pagination
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
-    const paginatedCoinlist = coinlist.slice(startIndex, endIndex);
-
-    // Check if data returned is an array
-
+    }, [])
 
     return (
-        <div >
+        <div>
+            {/**dropdown */}
+            <nav className="p-5 border-4 space-x-5 font-semibold 
+font-serif text-2xl text-red-500 flex 
+justify-center mt-4">
+                <h4 className="text-black text-lg font-sans font-md">Sort by</h4>
+                <Link href={'#'} className='hover:underline'>Trending</Link>
+                <Link href={'#'} className='hover:underline'>Market Cap</Link>
 
 
+            </nav>
 
-            {/**dropdown menu */}
-            <div className="border-2 border-blue-500 mt-2 ">
+            <div>
 
-                <div>
-                    <select className="m-2 py-4 px-4 outline-none font-serif text-lg font-semibold"
-                        name="Category" id="crypto">
-                        <option className="outline-none">Market Cap</option>
-                        <option>Name</option>
-                    </select>
-                </div>
-            </div>
+                {coinlist && coinlist.map((coin) => (
+                    <div key={coin.id} >
+                        <div className='flex ml-2 mr-1 p-4 border-2 '>
+                            <h1
+                                className="mr-2">{coin.market_cap_rank}.</h1>
+                            <Image
+                                className="mr-2" width={25} height={35} src={coin.image} alt='coin_image' />
+                            <span className='' >{coin.name}</span>
+                            <div className="flex  justify-between  w-full ">
 
+                                <h1 className="text-gray-400">({coin.symbol})</h1>
+                                <hi>{coin.current_price}</hi>
+                                <h1>{coin.market_cap_change_percentage_24h}</h1>
+                            </div>
 
-            <div className="mt-2  mr-3">
-                {/**Coin Display */}
-                {paginatedCoinlist.map((coin) => (
-                    <div key={coin.id}>
-                        <div className="ml-3 border-l-2 border-r-2 mt-3 border-t-2 border-b-2
-                         border-l-blue-500 py-3 px-2 border-r-blue-00 ">
-                            <h1>Symbol: {coin.symbol}</h1>
-                            <h1 className="text-blue-500">Name: {coin.name}</h1>
                         </div>
                     </div>
                 ))}
             </div>
-
-            <div className="pagination flex justify-around mt-4">
-                <button className="border-1 border-red-500 rounded-md px-2 py-2 bg-blue-500"
-                    onClick={previousPage} disabled={page === 1}>
-                    Previous
-                </button>
-                <button className="border-1 border-red-500 rounded-md px-5 py-2 bg-blue-500"
-                    onClick={nextPage}>Next</button>
-            </div>
         </div>
     );
-};
+}
 
 export default Coinlist;
