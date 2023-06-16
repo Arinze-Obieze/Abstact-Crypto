@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/note.md
+.a.md
 
 # next.js
 /.next/
