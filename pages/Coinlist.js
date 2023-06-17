@@ -57,10 +57,10 @@ justify-center mt-4">
                             <div className="flex  justify-between  w-full ">
                                 <h1 className="text-gray-400">({coin.symbol})</h1>
 
-                                {coin.market_cap_change_percentage_24h.toString().substring(0, 3) >= 0 ?
-                                    <div className="text-green-500 flex gap-1">{coin.market_cap_change_percentage_24h}%<BiTrendingUp/></div> :
-                                    <div className="text-red-500 flex gap-1">{coin.market_cap_change_percentage_24h}%<BiTrendingDown/></div>}
-                                <hi className='text-gray-700'>${coin.current_price}</hi>                          </div>
+                                {coin.market_cap_change_percentage_24h.toString().substring(0, 4) >= 0 ?
+                                    <div className="text-green-500 flex gap-1">{coin.market_cap_change_percentage_24h.toString().substring(0, 4)}%<BiTrendingUp/></div> :
+                                    <div className="text-red-500 flex gap-1">{coin.market_cap_change_percentage_24h.toString().substring(0, 5)}%<BiTrendingDown/></div>}
+                                <hi className='text-gray-700'>${coin.current_price.toString().substring(0, 5)}</hi>                          </div>
 
                         </div>
                     </div>
