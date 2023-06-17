@@ -5,25 +5,9 @@ const Search = () => {
     const [query, setQuery] = useState("");
     const [data, setData] = useState(null);
     const searchData = async () => {
-        const url = `https://coingecko.p.rapidapi.com/coins/${query}`;
-        const options = {
-            method: "GET",
-            params: {
-                localization: "false",
-                tickers: "true",
-                market_data: "true",
-                community_data: "true",
-                developer_data: "false",
-                sparkline: "false"
-            },
-            headers: {
-                "X-RapidAPI-Key": "14e2617be1msh3c78f8e9c1f46e1p152996jsn972a5e39f901",
-                "X-RapidAPI-Host": "coingecko.p.rapidapi.com"
-            }
-        };
-
+        const url = `https://api.coingecko.com/api/v3/search?query=${query}`;
         try {
-            let res = await fetch(url, options);
+            let res = await fetch(url);
             let data = await res.json();
             setData(data);
             console.log(data);
@@ -36,6 +20,8 @@ const Search = () => {
         const search = e.target.value;
         setQuery(search);
     };
+
+
 
 
 
@@ -80,15 +66,7 @@ const Search = () => {
 
 
 
-            {data && (
-                <div className="mt-4 border-2 border-blue-400 p-5">
-                   
-                    <p>Symbol: {data.symbol}</p>
-                    <p>Rank: {data.coingecko_rank}</p>
-                    <p>Score: {data.coingecko_score}</p>
-                    <p>Market Cap Rank: {data.market_cap_rank}</p>
-                </div>
-            ) }
+           
 
 
         </div>

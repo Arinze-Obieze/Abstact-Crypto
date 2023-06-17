@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import Coinlist from '@/pages/Coinlist'
 import Search from './Search'
 import Iconfooter from '@/components/Iconfooter'
+import Trending from './Trending'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +24,10 @@ export default function Home() {
 
 <Navbar />
 <Search/>
+
+<Trending/>
 <Coinlist/>
+
 
 <Footer/>
   <Iconfooter/>

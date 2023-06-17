@@ -1,73 +1,66 @@
 import { BiTrendingDown, BiTrendingUp } from "react-icons/bi";
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Coin from "@/components/Coin";
 
 const Coinlist = () => {
-    const [coinlist, setCoinlist] = useState([])
-
-    const [perpage, setPerpage] = useState(100)
-    const [page, setPage] =  useState(1)
-const [pricchange,setPricechange]=useState(`24`)
-
-    const Fetchcoins = async () => {
-        const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h&locale=en`
-
-        try {
-            const data = await fetch(url)
-            let coins = await data.json()
-            console.log(coins)
-            setCoinlist(coins)
-        } catch (err) {
-            console.log(err)
-        } finally {
-            return <div>Loading ..</div>
-        }
-    }
+    const [coinlist, setCoinlist] = useState([]);
+    const [page, setPage] = useState(1);
+    const [perpage, setPerpage] = useState(100);
 
     useEffect(() => {
-        Fetchcoins()
+        const fetchCoins = async () => {
+            const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perpage}&page=${page}&sparkline=false&price_change_percentage=24h&locale=en`;
 
-    }, [])
+            try {
+                const response = await fetch(url);
+                const coins = await response.json();
+                console.log(coins);
+                setCoinlist(coins);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchCoins();
+    }, [page, perpage]);
+
+    const nextPage = () => {
+        setPage(page + 1);
+    };
+
+    const previousPage = () => {
+        if (page > 1) {
+            setPage(page - 1);
+        }
+    };
+
+    // Calculate the current page of coins
+    const indexOfLastpage = page * perpage;
+    const indexOffirstpage = indexOfLastpage - perpage;
+    const currentpage = coinlist.slice(indexOffirstpage, indexOfLastpage);
 
     return (
         <div>
-            {/**dropdown */}
-            <nav className="p-5 border-4 space-x-5 font-semibold 
-font-serif text-2xl text-red-500 flex 
-justify-center mt-4">
-
-                <select>
-                    <option value="">Trending</option>
-                    <option value="">Market Cap</option>
-
-                </select>
-
+            <nav className="p-5 border-4 space-x-5 font-semibold font-serif text-2xl text-black flex justify-center mt-4">
+Sort By Market Cap
             </nav>
-
+            <div className="flex justify-around">
+                <h className="flex gap-2">
+                    <option value="name">Name</option>
+                </h>
+                <h1>% in 24h</h1>
+                <h1>Price</h1>
+            </div>
             <div>
-
-                {coinlist && coinlist.map((coin) => (
-                    <div key={coin.id} >
-                        <div className='flex ml-2 mr-1 p-4 border-2 mt-2 shadow-md'>                        <h1
-                            className="mr-2">{coin.market_cap_rank}.</h1>
-                            <Image
-                                className="mr-2" width={40} height={30} src={coin.image} alt='coin_image' />
-                            <span className='flex flex-grow' >{coin.name}</span>
-                            <div className="flex  justify-between  w-full ">
-                                <h1 className="text-gray-400">({coin.symbol})</h1>
-
-                                {coin.market_cap_change_percentage_24h.toString().substring(0, 4) >= 0 ?
-                                    <div className="text-green-500 flex gap-1">{coin.market_cap_change_percentage_24h.toString().substring(0, 4)}%<BiTrendingUp/></div> :
-                                    <div className="text-red-500 flex gap-1">{coin.market_cap_change_percentage_24h.toString().substring(0, 5)}%<BiTrendingDown/></div>}
-                                <hi className='text-gray-700'>${coin.current_price.toString().substring(0, 5)}</hi>                          </div>
-
-                        </div>
-                    </div>
+                {currentpage.map((coin) => (
+                    <Coin key={coin.id} coin={coin} />
                 ))}
             </div>
+
+
         </div>
     );
-}
+};
 
 export default Coinlist;
