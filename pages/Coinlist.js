@@ -49,7 +49,7 @@ justify-center mt-4">
 
                 {coinlist && coinlist.map((coin) => (
                     <div key={coin.id} >
-                        <div className='flex ml-2 mr-1 p-4 border-2 mt-5 shadow-md'>                        <h1
+                        <div className='flex ml-2 mr-1 p-4 border-2 mt-2 shadow-md'>                        <h1
                             className="mr-2">{coin.market_cap_rank}.</h1>
                             <Image
                                 className="mr-2" width={40} height={30} src={coin.image} alt='coin_image' />
