@@ -7,7 +7,10 @@ import Sidebar from "./Sidebar";
 import { useState } from "react";
 
 const Navbar = () => {
-
+    const [open,setOpen]=useState(true)
+    const toogleBar=()=>{
+        setOpen(!open)
+    }
     return (
         <div >
 
@@ -18,13 +21,13 @@ const Navbar = () => {
                 </span>
 
                 <menu>
-                    <AiOutlineMenuFold
-
-                        className="text-5xl mt-2" />
+                    <AiOutlineMenuFold 
+                    onClick={toogleBar}
+                    className="text-5xl mt-2" />
                 </menu>
 
-                <nav className={`hidden z-500 absolute top-0 right-0 
-                bg-black   pe-20 ps-7 py-16 text-2xl h-full
+                <nav className={`${open ? '':'hidden'}z-500 absolute top-0 right-0 
+                bg-black ${open}  pe-20 ps-7 py-16 text-2xl h-full
                  text-gray-300 hover:font-bold `}>
                     <nav className="flex flex-col justify-start space-y-5 " >
 

@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import Coinlist from '@/pages/Coinlist'
 import Search from './Search'
-import Iconfooter from '@/components/Iconfooter'
 import Trending from './Trending'
+import Foot from '@/components/Foot'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,16 +21,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.jpg" />
       </Head>
-
-<Navbar />
-<Search/>
-
-<Trending/>
-<Coinlist/>
+      <Trending />
+      <Coinlist />
+      <Foot />
 
 
-<Footer/>
-  <Iconfooter/>
     </>
   )
 }
