@@ -7,6 +7,7 @@ import Coinlist from '@/pages/Coinlist'
 import Search from './Search'
 import Trending from './Trending'
 import Foot from '@/components/Foot'
+import Herosection from '@/components/Herosection'
 
 
 
@@ -21,6 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.jpg" />
       </Head>
+      <Herosection/>
       <Trending />
       <Coinlist />
       <Foot />

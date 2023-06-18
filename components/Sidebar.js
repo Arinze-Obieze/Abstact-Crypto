@@ -10,7 +10,8 @@ const Sidebar = () => {
     return (
         <div>
             <nav className="z-500 absolute top-0 right-0 
-                bg-black  pe-20 ps-7 py-16 text-2xl h-full text-gray-300 hover:font-bold ">
+                bg-black  pe-20 ps-7 py-16 text-2xl h-full
+                 text-gray-300 hover:font-bold ">
                 <nav className="flex flex-col justify-start space-y-5 " >
 
                     <Link href="/" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100 hover:rounded-full hover:text-gray-100">
@@ -20,7 +21,6 @@ const Sidebar = () => {
                     <Link href="/" className="flex space-x-2">
                         <div ><FaRegNewspaper className="text-4xl " /></div>
                         <h1>News</h1></Link>
-
 
                     <Link href="/" className="flex space-x-2">
                         <div > <MdOutlineCandlestickChart className="text-4xl " /></div>

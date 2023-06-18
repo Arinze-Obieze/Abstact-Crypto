@@ -16,6 +16,10 @@ const News = () => {
                     <h1 className=" cursor-pointer">Bitcoin News</h1>
                 </nav>
             </header>
+
+
+
+            
         </div>
     );
 }
