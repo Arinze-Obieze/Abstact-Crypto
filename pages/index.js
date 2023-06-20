@@ -8,6 +8,7 @@ import Search from './Search'
 import Trending from './Trending'
 import Foot from '@/components/Foot'
 import Herosection from '@/components/Herosection'
+import Herocta from '@/components/Herocta'
 
 
 
@@ -25,6 +26,7 @@ export default function Home() {
       <Herosection/>
       <Trending />
       <Coinlist />
+      <Herocta/>
       <Foot />
 
 

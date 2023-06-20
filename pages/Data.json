@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Bitcoin",
+        "rate": 750,
+        "picture":"https://www.google.com/search?q=bitcion&sxsrf=APwXEdcxlsD0Cl59uVi052LxnyRYy6rNhw:1687218628012&tbm=isch&source=iu&ictx=1&vet=1&fir=XNfrkRUvu4sY4M%252CimK8dl9rZMMMvM%252C_%253BGrhdWgr8alUmSM%252CAELySIKBDvp_cM%252C_%253B3ZS0oiEwvgX3AM%252CqVNlniebNEneHM%252C_%253B8d6mkJAZPKj6_M%252CGfnC6QGEd0Os1M%252C_%253B4Tbm70uag-DOoM%252CbQf1p_A4kqH7OM%252C_%253BfSmC5a6j_xaveM%252CXbInLzMQttb-WM%252C_%253BqC1CE84Wg7-mlM%252CR77Zc32yFPT2iM%252C_%253BmYnH1TUd6pmA2M%252C2-mfYgQQ0uWTfM%252C_&usg=AI4_-kTHP48qDeAyut2mvrmmlNo-x_N9FA&sa=X&ved=2ahUKEwiIoOyXw9D_AhWIRMAKHQ9wAfMQ_h16BAhfEAE#imgrc=XNfrkRUvu4sY4M"
+    },
+    {
+        "id": 2,
+        "name": "Eth",
+        "rate": 850,
+        "picture":"https://www.google.com/search?q=bitcion&sxsrf=APwXEdcxlsD0Cl59uVi052LxnyRYy6rNhw:1687218628012&tbm=isch&source=iu&ictx=1&vet=1&fir=XNfrkRUvu4sY4M%252CimK8dl9rZMMMvM%252C_%253BGrhdWgr8alUmSM%252CAELySIKBDvp_cM%252C_%253B3ZS0oiEwvgX3AM%252CqVNlniebNEneHM%252C_%253B8d6mkJAZPKj6_M%252CGfnC6QGEd0Os1M%252C_%253B4Tbm70uag-DOoM%252CbQf1p_A4kqH7OM%252C_%253BfSmC5a6j_xaveM%252CXbInLzMQttb-WM%252C_%253BqC1CE84Wg7-mlM%252CR77Zc32yFPT2iM%252C_%253BmYnH1TUd6pmA2M%252C2-mfYgQQ0uWTfM%252C_&usg=AI4_-kTHP48qDeAyut2mvrmmlNo-x_N9FA&sa=X&ved=2ahUKEwiIoOyXw9D_AhWIRMAKHQ9wAfMQ_h16BAhfEAE#imgrc=XNfrkRUvu4sY4M"
+    },
+    {
+        "id": 3,
+        "name": "Usdt",
+        "rate": 720,
+        "picture":"https://www.google.com/search?q=bitcion&sxsrf=APwXEdcxlsD0Cl59uVi052LxnyRYy6rNhw:1687218628012&tbm=isch&source=iu&ictx=1&vet=1&fir=XNfrkRUvu4sY4M%252CimK8dl9rZMMMvM%252C_%253BGrhdWgr8alUmSM%252CAELySIKBDvp_cM%252C_%253B3ZS0oiEwvgX3AM%252CqVNlniebNEneHM%252C_%253B8d6mkJAZPKj6_M%252CGfnC6QGEd0Os1M%252C_%253B4Tbm70uag-DOoM%252CbQf1p_A4kqH7OM%252C_%253BfSmC5a6j_xaveM%252CXbInLzMQttb-WM%252C_%253BqC1CE84Wg7-mlM%252CR77Zc32yFPT2iM%252C_%253BmYnH1TUd6pmA2M%252C2-mfYgQQ0uWTfM%252C_&usg=AI4_-kTHP48qDeAyut2mvrmmlNo-x_N9FA&sa=X&ved=2ahUKEwiIoOyXw9D_AhWIRMAKHQ9wAfMQ_h16BAhfEAE#imgrc=XNfrkRUvu4sY4M"
+    }
+]

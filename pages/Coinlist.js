@@ -6,7 +6,7 @@ import Coin from "@/components/Coin";
 const Coinlist = () => {
     const [coinlist, setCoinlist] = useState([]);
     const [page, setPage] = useState(1);
-    const [perpage, setPerpage] = useState(100);
+    const [perpage, setPerpage] = useState(20);
 
     useEffect(() => {
         const fetchCoins = async () => {
@@ -41,7 +41,7 @@ const Coinlist = () => {
     const currentpage = coinlist.slice(indexOffirstpage, indexOfLastpage);
 
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <nav className="p-5 border-4 space-x-5 font-semibold font-serif text-2xl text-black flex justify-center mt-4">
 Sort By Market Cap
             </nav>

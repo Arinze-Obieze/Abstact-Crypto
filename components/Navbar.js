@@ -17,14 +17,14 @@ const Navbar = () => {
         }
     }
 
-    const iconSize = 'text-5xl'
+    const iconSize = 'text-3xl'
     return (
         <div >
 
-            <header className="  flex shadow-md justify-between mr-1 ">
+            <header className="flex shadow-md justify-between p-0">
                 <span className="flex">
-                    <Image src={'/logo.jpg'} width={77} height={44} alt='logo' className="rounded-full" />
-                    <Link href={'/'} className='space-x-4'><h1 className="mt-5 text-blue-500 font-serif font-semibold text-md"> <span className="text-red-500">ABSTRACT</span>    CRYPTO</h1></Link>
+                    <Image src={'/logo.jpg'} width={50} height={44} alt='logo' className="rounded-full" />
+                    <Link href={'/'} className='space-x-4'><h1 className="mt-2 text-blue-500 font-serif font-semibold text-md"> <span className="text-red-500">ABSTRACT</span>    CRYPTO</h1></Link>
                 </span>
 
                 <menu>
@@ -34,29 +34,29 @@ const Navbar = () => {
                         className={`${iconSize}  mt-2`} />
                 </menu>
                 <nav className={`${open} z-500 absolute top-0 right-0 
-                bg-black   pe-20 ps-7 py-16 text-2xl h-full
-                 text-gray-300 hover:font-bold `}>
+                bg-black   pe-10 ps-7 py-16 text-2xl h-full
+                 text-gray-300  `}>
                     <AiOutlineMenuUnfold
                         onClick={toggleOpen}
-                        className={`text-5xl ${open}  relative bottom-10 right-2`} />
+                        className={`text-3xl ${open}  relative bottom-10 right-2`} />
 
-                    <nav className="flex flex-col justify-start space-y-5 verflow-y-auto " >
+                    <nav className="flex flex-col justify-start space-y-5 overflow-y-auto " >
 
-                        <Link href="/" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100 hover:rounded-full hover:text-gray-100">
-                            <div ><AiOutlineHome className="text-4xl " /></div>
+                        <Link href="/" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100 hover:rounded-full hover:text-gray-100">
+                            <div ><AiOutlineHome className="text-2xl " /></div>
                             <h1>Home</h1></Link>
 
-                        <Link href="/News" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100 hover:rounded-full hover:text-gray-100">
-                            <div ><FaRegNewspaper className="text-4xl " /></div>
+                        <Link href="/News" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100 hover:rounded-full hover:text-gray-100">
+                            <div ><FaRegNewspaper className="text-2xl " /></div>
                             <h1>News</h1></Link>
 
 
-                        <Link href="/" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100 hover:rounded-full hover:text-gray-100">
-                            <div > <MdOutlineCandlestickChart className="text-4xl " /></div>
+                        <Link href="/" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100 hover:rounded-full hover:text-gray-100">
+                            <div > <MdOutlineCandlestickChart className="text-2xl " /></div>
                             <h1>Chart</h1></Link>
 
-                        <Link href="/Search" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100 hover:rounded-full hover:text-gray-100">
-                            <div ><AiOutlineSearch className="text-4xl " /></div>
+                        <Link href="/Search" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100 hover:rounded-full hover:text-gray-100">
+                            <div ><AiOutlineSearch className="text-2xl " /></div>
                             <h1>Search</h1></Link>
 
 
@@ -64,8 +64,8 @@ const Navbar = () => {
                         <Link href="/">Sell Crypto</Link>
 
 
-                        <Link href="/Search" className="flex space-x-2  hover:shadow-md hover:font-bold hover:bg-blue-700 p-2 transition-all duration-100  hover:text-gray-100">
-                            <div ><CiSettings className="text-4xl " /></div>
+                        <Link href="/Search" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100  hover:text-gray-100">
+                            <div ><CiSettings className="text-2xl " /></div>
                             <h1>Settings</h1></Link>
 
                     </nav>
