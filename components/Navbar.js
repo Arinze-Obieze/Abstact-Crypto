@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <div >
 
-            <header className="flex shadow-md justify-between p-0">
+            <header className="flex py-3 mb-2 shadow-md justify-between p-0">
                 <span className="flex">
                     <Image src={'/logo.jpg'} width={50} height={44} alt='logo' className="rounded-full" />
                     <Link href={'/'} className='space-x-4'><h1 className="mt-2 text-blue-500 font-serif font-semibold text-md"> <span className="text-red-500">ABSTRACT</span>    CRYPTO</h1></Link>
@@ -33,14 +33,14 @@ const Navbar = () => {
                         onClick={toggleOpen}
                         className={`${iconSize}  mt-2`} />
                 </menu>
-                <nav className={`${open} z-500 absolute top-0 right-0 
-                bg-black   pe-10 ps-7 py-16 text-2xl h-full
-                 text-gray-300  `}>
+                <nav className={`${open} z-50 absolute top-0 right-0 
+                bg-white   pe-10 ps-7 py-16 w-1/2 text-2xl h-full
+                 text-gray-900  `}>
                     <AiOutlineMenuUnfold
                         onClick={toggleOpen}
                         className={`text-3xl ${open}  relative bottom-10 right-2`} />
 
-                    <nav className="flex flex-col justify-start space-y-5 overflow-y-auto " >
+                    <nav className="flex flex-col justify-start space-y-5 overflow-y-auto mt-12 " >
 
                         <Link href="/" className="flex space-x-2  hover:shadow-md  hover:bg-blue-700  transition-all duration-100 hover:rounded-full hover:text-gray-100">
                             <div ><AiOutlineHome className="text-2xl " /></div>

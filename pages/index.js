@@ -26,9 +26,8 @@ export default function Home() {
       <Herosection/>
       <Trending />
       <Coinlist />
-      <Herocta/>
       <Foot />
-
+<Herocta/>
 
     </>
   )

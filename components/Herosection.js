@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 /* eslint-disable react/no-unescaped-entities */
@@ -17,10 +18,8 @@ const Herosection = () => {
                         </h1>
                         <p class="mb-8 text-lg leading-relaxed text-gray-300">Looking for a crypto site that buys and sells like a pro? Our platform is a hodler's dream! With lightning-fast transactions and a user-friendly interface, you'll be trading like a crypto-ninja in no time. Plus, we offer a 'Buy Low, HODL High' feature guaranteed to make your friends FOMO. Join us today and let's moon together</p>
                         <div class="flex justify-center space-x-5 mb-10 ">
-                            <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded-full">Buy Crypto <AiOutlineArrowRight /></button>
-
-                            <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full ">Sell Crypto <AiOutlineArrowRight /></button>
-
+                            <Link href={'/Rates'}><button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded-full">Buy Crypto <AiOutlineArrowRight /></button></Link>
+<Link href={'/Rates'}>                            <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full ">Sell Crypto <AiOutlineArrowRight /></button></Link>
                         </div>
                     </div>
                 </div>
@@ -28,15 +27,15 @@ const Herosection = () => {
 
 
             {/**Trending Section */}
-            <section className="bg-gradient-to-r from-blue-950 to-blue-600   text-white text-xl ">
-                <div className="container mx-auto flex px-5 py-16  md:flex-row flex-col items-center">
-                    <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                        <p className="mb-8 leading-relaxed font-body">
+            <section className="bg-white shadow-xl  border-8  text-blue-800 font-semibold  text-2xl ">
+                <div className="container mx-auto flex  py-10  md:flex-row flex-col items-center">
+                    <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left   md:mb-0 items-center text-center">
+                        <p className=" leading-10 font-body">
                             Get Real Live Crypto Prices and Trends
                         </p>
                         <div className="font-display text-base text-red-500">Over 1,000+ Crypto Data at your fingerprints</div>
                     </div>
-                    <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full ">Chart<AiOutlineArrowRight /></button>
+                    <button class="inline-flex text-white bg-red-500 border-0  py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full mt-6 ">Chart<AiOutlineArrowRight /></button>
                 </div>
             </section>
 
